@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CopyTestFiles">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -20,5 +20,13 @@
   <ItemGroup>
     <ProjectReference Include="..\dotnet-code-challenge\dotnet-code-challenge.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <TestFiles Include="$(MSBuildProjectDirectory)\TestData\**\*.*" /> 
+  </ItemGroup>
+
+  <Target Name="CopyTestFiles">
+    <Copy SourceFiles="@(TestFiles)" DestinationFolder="$(OutputPath)\TestData\%(RecursiveDir)"></Copy>
+  </Target>
 
 </Project>
