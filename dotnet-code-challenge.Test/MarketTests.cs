@@ -11,7 +11,7 @@ namespace dotnet_code_challenge.Test
         [TestMethod]
         public void TestAddEntry()
         {
-            var market = new Market();
+            var market = new Market("race");
             market.Add(new Entry(new Participant("1", "Bart"), 10m));
             var entries = market.Entries.ToArray();
             Assert.AreEqual(1, entries.Length);
@@ -21,7 +21,7 @@ namespace dotnet_code_challenge.Test
         [TestMethod]
         public void TestAddMultipleEntriesWithDifferentPrices()
         {
-            var market = new Market();
+            var market = new Market("race");
             market.Add(new Entry(new Participant("1", "Bart"), 10m));
             market.Add(new Entry(new Participant("2", "Nelson"), 11m));
             var entries = market.Entries.ToArray();
@@ -35,7 +35,7 @@ namespace dotnet_code_challenge.Test
         [TestMethod, ExpectedException(typeof(ArgumentException))]
         public void TestAddEntryWithDuplicateParticipantId()
         {
-            var market = new Market();
+            var market = new Market("race");
             market.Add(new Entry(new Participant("1", "Bart"), 10m));
             market.Add(new Entry(new Participant("1", "Nelson"), 11m));
         }
@@ -43,7 +43,7 @@ namespace dotnet_code_challenge.Test
         [TestMethod]
         public void TestAddMultipleEntriesWithTheSamePrice()
         {
-            var market = new Market();
+            var market = new Market("race");
             market.Add(new Entry(new Participant("1", "Bart"), 10m));
             market.Add(new Entry(new Participant("2", "Nelson"), 10m));
             var entries = market.Entries.ToArray();

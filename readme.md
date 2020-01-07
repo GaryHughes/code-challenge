@@ -4,6 +4,9 @@
 * Each input file is processed separately.
 * A race can contain multiple horses each with the same price.
 
+# Notes #
+
+* The XML parser is fragile
 
 
 

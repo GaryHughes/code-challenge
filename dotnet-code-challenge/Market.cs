@@ -5,6 +5,19 @@ namespace dotnet_code_challenge
 {
     public class Market
     {
+        public Market(string name)
+        {
+            Name = name;
+        }
+        
+        public Market(string name, IEnumerable<Entry> entries)
+        {
+            Name = name;
+            foreach (var entry in entries) {
+                Add(entry);          
+            }
+        }
+
         public void Add(Entry entry)
         {
             if (_participants.Contains(entry.Participant.Id)) {
@@ -15,6 +28,8 @@ namespace dotnet_code_challenge
             _entries.Add((entry.Price, entry.Generation), entry);
         }
         
+        public string Name { get; }
+
         public IEnumerable<Entry> Entries => _entries.Values;
 
         readonly SortedDictionary<(decimal Price, long Generation), Entry> _entries = new SortedDictionary<(decimal Price, long Generation), Entry>();
