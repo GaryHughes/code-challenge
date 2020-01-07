@@ -1,11 +1,13 @@
 using System;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace dotnet_code_challenge.Test
 {
-    public class UnitTest1
+
+    [TestClass]
+    public class MarketTests
     {
-        [Fact]
+        [TestMethod]
         public void Test1()
         {
 
