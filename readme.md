@@ -7,6 +7,7 @@
 # Notes #
 
 * The XML parser is fragile.
+* The JSON parser has not been implemented.
 * The program has been developered and tested on macOS with VSCode using .Net Core 3.1, it should run elsewhere with a comparable environment.
 
 # Running #
