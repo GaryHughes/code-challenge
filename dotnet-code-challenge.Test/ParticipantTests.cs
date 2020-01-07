@@ -8,9 +8,21 @@ namespace dotnet_code_challenge.Test
     public class ParticipantTests
     {
         [TestMethod]
-        public void Test1()
+        public void TestInitialisation()
         {
+            new Participant("1", "Bart");
+        }
 
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void TestInitialisationWithEmptyId()
+        {
+            new Participant("", "Nelson");
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void TestInitialisationWithEmptyName()
+        {
+            new Participant("5", "");    
         }
     }
 }
