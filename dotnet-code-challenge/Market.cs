@@ -7,11 +7,18 @@ namespace dotnet_code_challenge
     {
         public void Add(Entry entry)
         {
+            if (_participants.Contains(entry.Participant.Id)) {
+                throw new ArgumentException($"Invalid attempt to add participant with Id={entry.Participant.Id} more than once");
+            }
+
+            _participants.Add(entry.Participant.Id);
             _entries.Add((entry.Price, entry.Generation), entry);
         }
         
         public IEnumerable<Entry> Entries => _entries.Values;
 
         readonly SortedDictionary<(decimal Price, long Generation), Entry> _entries = new SortedDictionary<(decimal Price, long Generation), Entry>();
+
+        readonly HashSet<string> _participants = new HashSet<string>();
     }
 }

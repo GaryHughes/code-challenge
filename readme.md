@@ -1,3 +1,15 @@
+# Assumptions #
+
+* A given race can only contain one instance of a horse.
+* Each input file is processed separately.
+* A race can contain multiple horses each with the same price.
+
+
+
+
+
+
+
 # .NET Code Challenge
 
 You've been provided with the shell of a .Net application in Visual Studio with some sample inputs 
