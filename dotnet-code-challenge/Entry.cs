@@ -16,9 +16,18 @@ namespace dotnet_code_challenge
 
             Participant = participant;
             Price = price;
+            Generation = AllocationGeneration();
         }
 
         public Participant Participant { get; }
         public decimal Price { get; }
+        public long Generation { get; } 
+
+        static long AllocationGeneration()
+        {
+            return _nextGeneration++;
+        }
+
+        static long _nextGeneration = 0;
     }
 }
